@@ -144,6 +144,7 @@ if __name__ == '__main__':
 
     total_score = 0
     n_games = 0
+    record = 0
 
     # game loop
     while True:
@@ -154,10 +155,13 @@ if __name__ == '__main__':
             total_score += score
             mean_score = total_score/n_games
 
+            if score > record:
+                record = score
+
             plot_scores.append(score)
             plot_mean_scores.append(mean_score)
 
-            print('Game:', n_games, '- Final Score:', score)
+            print('Game:', n_games, '- Final Score:', score, '- High Score:', record)
 
             if n_games < 20:
                 game.reset()
